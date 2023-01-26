@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class ConfirmationPage {
 	WebDriver driver;
 	
-	By lbl_MsgConfirmation = By.xpath("//h2[.='Thank you for your purchase!']]");
+	By lbl_MsgConfirmation = By.xpath("//h2[.='Thank you for your purchase!']");
 	
 	public ConfirmationPage(WebDriver driver) {
 		this.driver = driver;

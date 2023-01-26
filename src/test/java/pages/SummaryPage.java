@@ -1,7 +1,13 @@
 package pages;
 
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class SummaryPage {
 	WebDriver driver;
@@ -14,6 +20,10 @@ public class SummaryPage {
 
 	public void addToCart() {
 		driver.findElement(btn_AddtoCart).click();
-		driver.switchTo().alert().accept();
+		new WebDriverWait(driver,Duration.ofSeconds(60)).ignoring(NoAlertPresentException.class)
+        .until(ExpectedConditions.alertIsPresent());
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+		driver.switchTo().defaultContent();
 	}
 }

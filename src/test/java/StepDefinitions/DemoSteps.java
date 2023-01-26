@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 import pages.ConfirmationPage;
 import pages.HomePage;
 import pages.LaptopsPage;
+import pages.MenuPage;
 import pages.OrderFormPlace;
 import pages.PlacePage;
 import pages.SummaryPage;
@@ -38,8 +39,11 @@ public class DemoSteps {
 		laptops.selectPro(strMac);
 		SummaryPage summary = new SummaryPage(driver);
 		summary.addToCart();
+		MenuPage optmenu = new MenuPage(driver);
+		optmenu.cartOption();
 		PlacePage place = new PlacePage(driver);
 		place.placeOrder();
+		
 	}
 
 	@When("fill the form {string} {string} {string} {string} {string} {string}")
